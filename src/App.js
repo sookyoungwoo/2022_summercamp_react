@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import AC from './components/AC';
+import BC from './components/BC';
+import CC from './components/CC';
+import DC from './components/DC';
+import EC from './components/EC';
+import FC from './components/FC';
+import "./App.css";
+import { useState } from 'react';
+import { useUserContext } from './hooks/useUserContext';
 function App() {
+  const UserContext = useUserContext();
   return (
+    <UserContext.Provider value={{...UserContext}}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AC name={name}>
+        <BC name={name}>
+          <CC></CC>
+        </BC>
+      </AC>
+      <DC>
+        <EC></EC>
+      </DC>
     </div>
+    </UserContext.Provider>
   );
 }
 
